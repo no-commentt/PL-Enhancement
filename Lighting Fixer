@@ -1,8 +1,8 @@
 -- Prison Life Lighting Fixer!
 
-lighting = game.Lighting
+local lighting = game.Lighting
 
-
+while true do
 -- lighting config
 lighting.Ambient = Color3.fromRGB(35,35,35)
 lighting.Brightness = 0.5
@@ -12,11 +12,12 @@ lighting.EnvironmentDiffuseScale = 0.359
 lighting.EnvironmentSpecularScale = 0.313
 lighting.GlobalShadows = true
 lighting.OutdoorAmbient = Color3.fromRGB(40,40,40)
-
+wait(30)
+end
 
 -- atmosphere
 
-atmo = Instance.new("Atmosphere")
+local atmo = Instance.new("Atmosphere")
 atmo.Density = 0.3
 atmo.Offset = 0
 atmo.Color = Color3.fromRGB(31,47,55)
@@ -24,7 +25,7 @@ atmo.Decay = Color3.fromRGB(65,25,25)
 atmo.Parent = lighting
 
 -- cloud sky
-cldsky = Instance.new("Sky")
+local cldsky = Instance.new("Sky")
 cldsky.CelestialBodiesShown = true
 cldsky.MoonAngularSize = 11
 cldsky.MoonTextureId = "rbxasset://sky/moon.jpg"
