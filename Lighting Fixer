@@ -1,0 +1,87 @@
+-- Prison Life Lighting Fixer!
+
+lighting = game.Lighting
+
+
+-- lighting config
+lighting.Ambient = Color3.fromRGB(35,35,35)
+lighting.Brightness = 0.5
+lighting.ColorShift_Bottom = Color3.fromRGB(0,0,0)
+lighting.ColorShift_Top = Color3.fromRGB(100,58,4)
+lighting.EnvironmentDiffuseScale = 0.359
+lighting.EnvironmentSpecularScale = 0.313
+lighting.GlobalShadows = true
+lighting.OutdoorAmbient = Color3.fromRGB(40,40,40)
+
+
+-- atmosphere
+
+atmo = Instance.new("Atmosphere")
+atmo.Density = 0.3
+atmo.Offset = 0
+atmo.Color = Color3.fromRGB(31,47,55)
+atmo.Decay = Color3.fromRGB(65,25,25)
+atmo.Parent = lighting
+
+-- cloud sky
+cldsky = Instance.new("Sky")
+cldsky.CelestialBodiesShown = true
+cldsky.MoonAngularSize = 11
+cldsky.MoonTextureId = "rbxasset://sky/moon.jpg"
+cldsky.SkyboxBk = "rbxassetid://9643289416"
+cldsky.SkyboxDn = "rbxassetid://9643289050"
+cldsky.SkyboxFt = "rbxassetid://9643288511"
+cldsky.SkyboxLf = "rbxassetid://9643288901"
+cldsky.SkyboxRt = "rbxassetid://9643287746"
+cldsky.SkyboxUp = "rbxassetid://9643288210"
+cldsky.StarCount = 3000
+cldsky.SunAngularSize = 21
+cldsky.SunTextureId = "rbxasset://sky/sun.jpg"
+lighting.Sky:Destroy()
+cldsky.Parent = lighting
+cldsky.Name = "Cloudy Sky"
+
+-- game skybox
+local game_skybox = Instance.new("Sky")
+game_skybox.MoonAngularSize = 8
+game_skybox.MoonTextureId = "http://www.roblox.com/asset/?id=4547507884"
+game_skybox.SkyboxBk = "rbxassetid://4555652172"
+game_skybox.SkyboxDn = "rbxassetid://4555652492"
+game_skybox.SkyboxFt = "rbxassetid://4555652689"
+game_skybox.SkyboxLf = "rbxassetid://4555652858"
+game_skybox.SkyboxRt = "rbxassetid://4555653030"
+game_skybox.SkyboxUp = "rbxassetid://4555653225"
+game_skybox.StarCount = 5000
+game_skybox.SunAngularSize = 9
+game_skybox.Name = "GameSkybox"
+game_skybox.Parent = lighting
+
+-- loading blur
+local loading_blur = Instance.new("BlurEffect")
+loading_blur.Size = 0
+loading_blur.Name = "LoadingBlur"
+loading_blur.Parent = lighting
+
+-- loading correction
+local loadingcorrection = Instance.new("ColorCorrectionEffect")
+loadingcorrection.Name = "Loadingcorrection"
+loadingcorrection.Parent = lighting
+
+-- Sunrays
+local sun_rays = Instance.new("SunRaysEffect")
+sun_rays.Intensity = 0.5239999890327454
+sun_rays.Parent = lighting
+
+-- bloom
+local superbloom = Instance.new("BloomEffect")
+superbloom.Intensity = 1
+superbloom.Size = 36
+superbloom.Threshold = 2.815999984741211
+superbloom.Name = "Superbloom"
+superbloom.Parent = lighting
+
+-- clouds
+local clouds = Instance.new("Clouds")
+clouds.Cover = 0.656000018119812
+clouds.Density = 0.5080000162124634
+clouds.Parent = game.Workspace.Terrain
